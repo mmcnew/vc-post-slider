@@ -6,7 +6,7 @@
 *    Since version 1.0
 */
 
-class VCMaps_Plugin_Updater {
+class VCSlider_Plugin_Updater {
  
     private $slug; // plugin slug
     private $pluginData; // plugin data
