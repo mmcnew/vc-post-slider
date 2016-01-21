@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 require_once( 'inc/vc-plugin-updater.php' );
 if ( is_admin() ) {
-    new VCMaps_Plugin_Updater( __FILE__, 'mmcnew', 'vc-post-slider' );
+    new VCSlide_Plugin_Updater( __FILE__, 'mmcnew', 'vc-post-slider' );
 }
 
 
