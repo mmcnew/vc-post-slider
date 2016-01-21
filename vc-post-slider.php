@@ -51,16 +51,16 @@ function vc_post_scroller( $atts ) {
 		
  );
 
-$list = '<div class="owl-carousel">';
+return '<div class="owl-carousel">';
 
 while($q->have_posts()) : $q->the_post();
 	$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-	$list .= '<div class="item"><a href="' . get_permalink() . '"><img src="' . $feat_image . '" alt="' . get_the_title() . '"/><p class="name">' . get_the_title() . '</p></a></div>';
+	return '<div class="item"><a href="' . get_permalink() . '"><img src="' . $feat_image . '" alt="' . get_the_title() . '"/><p class="name">' . get_the_title() . '</p></a></div>';
 endwhile;
 
-$list = '</div>';
+return  '</div>';
 
-$list = '<script type="text/javascript">
+return '<script type="text/javascript">
 			$(document).ready(function(){
 				$(".owl-carousel").owlCarousel({
 					loop:true,
