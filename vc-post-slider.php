@@ -55,7 +55,7 @@ return '<div class="owl-carousel">';
 
 while($q->have_posts()) : $q->the_post();
 	$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-	return '<div class="item"><a href="' . get_permalink() . '"><img src="' . $feat_image . '" alt="' . get_the_title() . '"/><p class="name">' . get_the_title() . '</p></a></div>';
+	$list = '<div class="item"><a href="' . get_permalink() . '"><img src="' . $feat_image . '" alt="' . get_the_title() . '"/><p class="name">' . get_the_title() . '</p></a></div>';
 endwhile;
 
 return  '</div>';
