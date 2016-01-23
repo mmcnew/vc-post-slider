@@ -68,49 +68,6 @@ function vc_post_scroller( $atts ) {
 		
 	$q = new WP_Query( $args  );
 	
-	function lazy_class() {
-		if( $a['lazyload'] != 'false' ) {
-			 return 'owl-lazy';		
-		} else {
-			return '';
-		};
-	};
-	
-	$class = lazy_class();
-	
-	function is_responsive() {
-		if ($a['columns'] ==  '5' ) {
-				return '
-					0:{
-            			items:1
-					},
-					600:{
-						items:3
-					},
-					1000:{
-						items:5,
-						margin:10
-					}';
-			} elseif ($a['columns'] ==  '3' ) {
-				return '
-					0:{
-            			items:1
-					},
-					600:{
-						items:3
-					}';
-			} elseif ($a['columns'] ==  '1' ) {
-				return '
-					0:{
-            			items:1
-					}';
-			} elseif ($a['columns'] ==  '0' ) {
-				return 'false';
-			}
-	};
-	
-	$responsive = is_responsive();
-		
 	$list = '<div class="owl-carousel">';
 	while($q->have_posts()) : $q->the_post();
 		$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
@@ -119,7 +76,11 @@ function vc_post_scroller( $atts ) {
 		if( $a['classes'] != '' ) {
 			$list .= $a['classes'];
 		}
-		$list .= "'><img class='" . $class . "' src='" . $feat_image . "' alt='" . get_the_title() . "'";
+		$list .= "'><img class='";
+		if( $a['lazyload'] != 'false' ) {
+			$list .= $class;
+		}
+		$list .= "' src='" . $feat_image . "' alt='" . get_the_title() . "'";
 		if( $a['lazyload'] != 'false' ) {
 			$list .= " data-src='" . $feat_image . "'";
 		}
@@ -136,7 +97,7 @@ function vc_post_scroller( $atts ) {
 	endwhile;
 	wp_reset_query();
 	
-	return $list . '</div>
+	$list .= '</div>
 				</div>
 			</div>
 	<script type="text/javascript">
@@ -147,7 +108,39 @@ function vc_post_scroller( $atts ) {
 				nav: ' . "{$a['nav']}" . ',
 				dots: ' . "{$a['dots']}" . ',
 				lazyLoad: ' . "{$a['lazyload']}" . ',
-				responsive: {' . "{$responsive}" . '},
+				responsive: '; 
+				if ( $a['columns'] == 1 ) {
+					$list .= '{
+						0:{
+							items:1
+						}
+					}';
+				} elseif ( $a['columns'] == 3 ) {
+					$list .= '{
+						0:{
+							items:1
+						},
+						600:{
+							items:3
+						}
+					}';
+				} elseif ( $a['columns'] == 5 ) {
+					$list .= '{
+						0:{
+							items:1
+						},
+						600:{
+							items:3
+						},
+						1000:{
+							items:5,
+							margin:10
+						}
+					}';
+				} else {
+					$list .= 'false';
+				}
+				$list .= ',
 				center: ' . "{$a['center']}" . ',
 				autoplay: ' . "{$a['autoplay']}" . ',
 				autoplayTimeout: 2000,
@@ -156,6 +149,8 @@ function vc_post_scroller( $atts ) {
 				});
 			});
 		</script>';
+		
+		return $list;
 }
 add_shortcode( 'scroller', 'vc_post_scroller' );
 
