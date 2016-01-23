@@ -84,14 +84,11 @@ function vc_post_scroller( $atts ) {
 		if( $a['lazyload'] != 'false' ) {
 			$list .= " data-src='" . $feat_image . "'";
 		}
-		$list .= "/><p class='name";
+		$list .= "/><p ";
 		if( $a['excerpt'] != 'false' && '' != $excerpt ) {
-			$list .= " quote";
+			$list .= "class='quote'>" . $excerpt . "</p><p";
 		}
-		$list .= "'>";
-		if( $a['excerpt'] != 'false' && '' != $excerpt ) {
-			$list .= $excerpt . " - ";
-		}
+		$list .= " class='name'>";
 		$list .= get_the_title() . "</p>";
 		$list .= "</div>";
 	endwhile;
