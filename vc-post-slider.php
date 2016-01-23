@@ -78,7 +78,7 @@ function vc_post_scroller( $atts ) {
 		}
 		$list .= "'><img class='";
 		if( $a['lazyload'] != 'false' ) {
-			$list .= $class;
+			$list .= "owl-lazy";
 		}
 		$list .= "' src='" . $feat_image . "' alt='" . get_the_title() . "'";
 		if( $a['lazyload'] != 'false' ) {
