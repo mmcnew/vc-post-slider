@@ -55,7 +55,7 @@ function vc_post_scroller( $atts ) {
 		'margin' => '10',
 		'loop' => 'true',
 		'lazyload' => 'true',
-		'responsive' => 'true',
+		'columns' => '3',
 		'center' => 'false',
 		'autoplay' => 'true',
 		'excerpt' => 'false',
@@ -78,7 +78,38 @@ function vc_post_scroller( $atts ) {
 	
 	$class = lazy_class();
 	
+	function is_responsive() {
+		if ($a['columns'] ==  '5' ) {
+				return '
+					0:{
+            			items:1
+					},
+					600:{
+						items:3
+					},
+					1000:{
+						items:5,
+						margin:10
+					}';
+			} elseif ($a['columns'] ==  '3' ) {
+				return '
+					0:{
+            			items:1
+					},
+					600:{
+						items:3
+					}';
+			} elseif ($a['columns'] ==  '1' ) {
+				return '
+					0:{
+            			items:1
+					}';
+			} elseif ($a['columns'] ==  '0' ) {
+				return 'false';
+			}
+	};
 	
+	$responsive = is_responsive();
 		
 	$list = '<div class="owl-carousel">';
 	while($q->have_posts()) : $q->the_post();
@@ -116,7 +147,7 @@ function vc_post_scroller( $atts ) {
 				nav: ' . "{$a['nav']}" . ',
 				dots: ' . "{$a['dots']}" . ',
 				lazyLoad: ' . "{$a['lazyload']}" . ',
-				responsive: ' . "{$a['responsive']}" . ',
+				responsive: {' . "{$responsive}" . '},
 				center: ' . "{$a['center']}" . ',
 				autoplay: ' . "{$a['autoplay']}" . ',
 				autoplayTimeout: 2000,
