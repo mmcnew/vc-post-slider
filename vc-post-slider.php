@@ -58,7 +58,8 @@ function vc_post_scroller( $atts ) {
 		'responsive' => 'true',
 		'center' => 'false',
 		'autoplay' => 'true',
-		'excerpt' => 'false'
+		'excerpt' => 'false',
+		'classes' => ''
 		), $atts );
 		
 	$args = array(
@@ -83,11 +84,24 @@ function vc_post_scroller( $atts ) {
 	while($q->have_posts()) : $q->the_post();
 		$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 		$excerpt =  get_the_excerpt();
-		if( $a['excerpt'] != 'false' && '' != $excerpt ) {
-		$list .= "<div class='item " . $a['type'] . "'><img class='" . $class . "' src='" . $feat_image . "' alt='" . get_the_title() . "' data-src='" . $feat_image . "' /><p class='quote'>" . $excerpt . " -" .get_the_title() . "</p></div>";
-		} else {
-		$list .= "<div class='item " . $a['type'] . "'><img class='" . $class . "' src='" . $feat_image . "' alt='" . get_the_title() . "' data-src='" . $feat_image . "' /><p class='name'>" . get_the_title() . "</p></div>";
+		$list .= "<div class='item " . $a['type'];
+		if( $a['classes'] != '' ) {
+			$list .= $a['classes'];
 		}
+		$list .= "'><img class='" . $class . "' src='" . $feat_image . "' alt='" . get_the_title() . "'";
+		if( $a['lazyload'] != 'false' ) {
+			$list .= " data-src='" . $feat_image . "'";
+		}
+		$list .= "/><p class='name";
+		if( $a['excerpt'] != 'false' && '' != $excerpt ) {
+			$list .= " quote";
+		}
+		$list .= "'>";
+		if( $a['excerpt'] != 'false' && '' != $excerpt ) {
+			$list .= $excerpt . " - ";
+		}
+		$list .= get_the_title() . "</p>";
+		$list .= "</div>";
 	endwhile;
 	wp_reset_query();
 	
