@@ -1,7 +1,7 @@
 /* 
- * 	Owl Carousel - Auto Height Plugin
+ * 	VC Post Slider - Auto Height Plugin
  */
-.owl-height {
+.vc-height {
   -webkit-transition: height 500ms ease-in-out;
   -moz-transition: height 500ms ease-in-out;
   -ms-transition: height 500ms ease-in-out;

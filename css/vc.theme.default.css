@@ -1,11 +1,11 @@
 /* 
- * 	Default theme - Owl Carousel CSS File
+ * 	Default theme - VC Post Slider CSS File
  */
-.owl-theme .owl-nav {
+.vc-theme .vc-nav {
   margin-top: 10px;
   text-align: center;
   -webkit-tap-highlight-color: transparent; }
-  .owl-theme .owl-nav [class*='owl-'] {
+  .vc-theme .vc-nav [class*='vc-'] {
     color: #FFF;
     font-size: 14px;
     margin: 5px;
@@ -16,23 +16,23 @@
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px; }
-    .owl-theme .owl-nav [class*='owl-']:hover {
+    .vc-theme .vc-nav [class*='vc-']:hover {
       background: #869791;
       color: #FFF;
       text-decoration: none; }
-  .owl-theme .owl-nav .disabled {
+  .vc-theme .vc-nav .disabled {
     opacity: 0.5;
     cursor: default; }
-.owl-theme .owl-nav.disabled + .owl-dots {
+.vc-theme .vc-nav.disabled + .vc-dots {
   margin-top: 10px; }
-.owl-theme .owl-dots {
+.vc-theme .vc-dots {
   text-align: center;
   -webkit-tap-highlight-color: transparent; }
-  .owl-theme .owl-dots .owl-dot {
+  .vc-theme .vc-dots .vc-dot {
     display: inline-block;
     zoom: 1;
     *display: inline; }
-    .owl-theme .owl-dots .owl-dot span {
+    .vc-theme .vc-dots .vc-dot span {
       width: 10px;
       height: 10px;
       margin: 5px 7px;
@@ -47,5 +47,5 @@
       -webkit-border-radius: 30px;
       -moz-border-radius: 30px;
       border-radius: 30px; }
-    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    .vc-theme .vc-dots .vc-dot.active span, .vc-theme .vc-dots .vc-dot:hover span {
       background: #869791; }

@@ -1,11 +1,11 @@
 /* 
- * 	Owl Carousel - Video Plugin
+ * 	VC Post Slider - Video Plugin
  */
-.owl-carousel .owl-video-wrapper {
+.vc-carousel .vc-video-wrapper {
   position: relative;
   height: 100%;
   background: #000; }
-.owl-carousel .owl-video-play-icon {
+.vc-carousel .vc-video-play-icon {
   position: absolute;
   height: 80px;
   width: 80px;
@@ -13,7 +13,7 @@
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  background: url("owl.video.play.png") no-repeat;
+  background: url("vc.video.play.png") no-repeat;
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;
@@ -22,15 +22,15 @@
   -ms-transition: scale 100ms ease;
   -o-transition: scale 100ms ease;
   transition: scale 100ms ease; }
-.owl-carousel .owl-video-play-icon:hover {
+.vc-carousel .vc-video-play-icon:hover {
   -webkit-transition: scale(1.3, 1.3);
   -moz-transition: scale(1.3, 1.3);
   -ms-transition: scale(1.3, 1.3);
   -o-transition: scale(1.3, 1.3);
   transition: scale(1.3, 1.3); }
-.owl-carousel .owl-video-playing .owl-video-tn, .owl-carousel .owl-video-playing .owl-video-play-icon {
+.vc-carousel .vc-video-playing .vc-video-tn, .vc-carousel .vc-video-playing .vc-video-play-icon {
   display: none; }
-.owl-carousel .owl-video-tn {
+.vc-carousel .vc-video-tn {
   opacity: 0;
   height: 100%;
   background-position: center center;
@@ -44,7 +44,7 @@
   -ms-transition: opacity 400ms ease;
   -o-transition: opacity 400ms ease;
   transition: opacity 400ms ease; }
-.owl-carousel .owl-video-frame {
+.vc-carousel .vc-video-frame {
   position: relative;
   z-index: 1;
   height: 100%;

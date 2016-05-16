@@ -3,7 +3,7 @@
   Plugin Name: VC Post Slider
   Plugin URI: http://www.visceralconcepts.com
   Description: A shortcode to add an Owl Slider featuring any custom post type.
-  Version: 1.01
+  Version: 1.02
   Author: Visceral Concepts
   Author URI: http://www.visceralconcepts.com
   License: GPLv3 or Later
@@ -29,20 +29,20 @@ if ( is_admin() ) {
 add_action( 'wp_enqueue_scripts', 'vc_owl_scripts', 16 );
 function vc_owl_scripts() {
 
-	wp_register_style( 'owl-css', plugin_dir_url(__FILE__) . 'css/owl.carousel.css', false, '2.0.0', false );
-	wp_register_style( 'owl-theme-css', plugin_dir_url(__FILE__) . 'css/owl.theme.default.css', false, '2.0.0', false );
-	wp_register_style( 'owl-animate-css', plugin_dir_url(__FILE__) . 'css/owl.animate.css', false, '2.0.0', false );
-	wp_register_style( 'owl-autoheight-css', plugin_dir_url(__FILE__) . 'css/owl.autoheight.css', false, '2.0.0', false );
-	wp_register_style( 'owl-lazyload-css', plugin_dir_url(__FILE__) . 'css/owl.lazyload.css', false, '2.0.0', false );
-	wp_register_script( 'owl-jquery' , plugin_dir_url(__FILE__) . 'js/jquery.min.js', false, '2.1.1', false );
-	wp_register_script( 'owl-script', plugin_dir_url(__FILE__) . 'js/owl.carousel.min.js', false, '2.0.0', false );
-	wp_enqueue_style( 'owl-css' );
-	wp_enqueue_style( 'owl-theme-css' );
-	wp_enqueue_style( 'owl-animate-css' );
-	wp_enqueue_style( 'owl-autoheight-css' );
-	wp_enqueue_style( 'owl-lazyload-css' );
-	wp_enqueue_script( 'owl-jquery' );
-	wp_enqueue_script( 'owl-script' );
+	wp_register_style( 'vc-css', plugin_dir_url(__FILE__) . 'css/vc.carousel.css', false, '2.0.0', false );
+	wp_register_style( 'vc-theme-css', plugin_dir_url(__FILE__) . 'css/vc.theme.default.css', false, '2.0.0', false );
+	wp_register_style( 'vc-animate-css', plugin_dir_url(__FILE__) . 'css/vc.animate.css', false, '2.0.0', false );
+	wp_register_style( 'vc-autoheight-css', plugin_dir_url(__FILE__) . 'css/vc.autoheight.css', false, '2.0.0', false );
+	wp_register_style( 'vc-lazyload-css', plugin_dir_url(__FILE__) . 'css/vc.lazyload.css', false, '2.0.0', false );
+	wp_register_script( 'vc-jquery' , plugin_dir_url(__FILE__) . 'js/jquery.min.js', false, '2.1.1', false );
+	wp_register_script( 'vc-script', plugin_dir_url(__FILE__) . 'js/vc.carousel.min.js', false, '2.0.0', false );
+	wp_enqueue_style( 'vc-css' );
+	wp_enqueue_style( 'vc-theme-css' );
+	wp_enqueue_style( 'vc-animate-css' );
+	wp_enqueue_style( 'vc-autoheight-css' );
+	wp_enqueue_style( 'vc-lazyload-css' );
+	wp_enqueue_script( 'vc-jquery' );
+	wp_enqueue_script( 'vc-script' );
 
 }
 
@@ -68,7 +68,7 @@ function vc_post_scroller( $atts ) {
 		
 	$q = new WP_Query( $args  );
 	
-	$list = '<div class="owl-carousel">';
+	$list = '<div class="vc-carousel">';
 	while($q->have_posts()) : $q->the_post();
 		$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 		$excerpt =  get_the_excerpt();
@@ -78,7 +78,7 @@ function vc_post_scroller( $atts ) {
 		}
 		$list .= "'><img class='";
 		if( $a['lazyload'] != 'false' ) {
-			$list .= "owl-lazy";
+			$list .= "vc-lazy";
 		}
 		$list .= "' src='" . $feat_image . "' alt='" . get_the_title() . "'";
 		if( $a['lazyload'] != 'false' ) {
@@ -99,7 +99,7 @@ function vc_post_scroller( $atts ) {
 			</div>
 	<script type="text/javascript">
 		jQuery(document).ready(function($){
-			$(' . "'.owl-carousel'" . ').owlCarousel({
+			$(' . "'.vc-carousel'" . ').vcCarousel({
 				loop: ' . "{$a['loop']}" . ',
 				margin: ' . "{$a['margin']}" . ',
 				nav: ' . "{$a['nav']}" . ',

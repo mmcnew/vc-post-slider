@@ -1,42 +1,42 @@
 /* 
- *  Core Owl Carousel CSS File
+ *  Core VC Post Slider CSS File
  */
-.owl-carousel {
+.vc-carousel {
   display: none;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
   /* position relative and z-index fix webkit rendering fonts issue */
   position: relative;
   z-index: 1; }
-  .owl-carousel .owl-stage {
+  .vc-carousel .vc-stage {
     position: relative;
     -ms-touch-action: pan-Y; }
-  .owl-carousel .owl-stage:after {
+  .vc-carousel .vc-stage:after {
     content: ".";
     display: block;
     clear: both;
     visibility: hidden;
     line-height: 0;
     height: 0; }
-  .owl-carousel .owl-stage-outer {
+  .vc-carousel .vc-stage-outer {
     position: relative;
     overflow: hidden;
     /* fix for flashing background */
     -webkit-transform: translate3d(0px, 0px, 0px); }
-  .owl-carousel .owl-item {
+  .vc-carousel .vc-item {
     position: relative;
     min-height: 1px;
     float: left;
     -webkit-backface-visibility: hidden;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none; }
-  .owl-carousel .owl-item img {
+  .vc-carousel .vc-item img {
     display: block;
     width: 100%;
     -webkit-transform-style: preserve-3d; }
-  .owl-carousel .owl-nav.disabled, .owl-carousel .owl-dots.disabled {
+  .vc-carousel .vc-nav.disabled, .vc-carousel .vc-dots.disabled {
     display: none; }
-  .owl-carousel .owl-nav .owl-prev, .owl-carousel .owl-nav .owl-next, .owl-carousel .owl-dot {
+  .vc-carousel .vc-nav .vc-prev, .vc-carousel .vc-nav .vc-next, .vc-carousel .vc-dot {
     cursor: pointer;
     cursor: hand;
     -webkit-user-select: none;
@@ -44,31 +44,31 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; }
-  .owl-carousel.owl-loaded {
+  .vc-carousel.vc-loaded {
     display: block; }
-  .owl-carousel.owl-loading {
+  .vc-carousel.vc-loading {
     opacity: 0;
     display: block; }
-  .owl-carousel.owl-hidden {
+  .vc-carousel.vc-hidden {
     opacity: 0; }
-  .owl-carousel.owl-refresh .owl-item {
+  .vc-carousel.vc-refresh .vc-item {
     display: none; }
-  .owl-carousel.owl-drag .owl-item {
+  .vc-carousel.vc-drag .vc-item {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; }
-  .owl-carousel.owl-grab {
+  .vc-carousel.vc-grab {
     cursor: move;
     cursor: -webkit-grab;
     cursor: -o-grab;
     cursor: -ms-grab;
     cursor: grab; }
-  .owl-carousel.owl-rtl {
+  .vc-carousel.vc-rtl {
     direction: rtl; }
-  .owl-carousel.owl-rtl .owl-item {
+  .vc-carousel.vc-rtl .vc-item {
     float: right; }
 
 /* No Js */
-.no-js .owl-carousel {
+.no-js .vc-carousel {
   display: block; }
