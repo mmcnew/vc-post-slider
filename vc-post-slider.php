@@ -3,7 +3,7 @@
   Plugin Name: VC Post Slider
   Plugin URI: http://www.visceralconcepts.com
   Description: A shortcode to add an Owl Slider featuring any custom post type.
-  Version: 1.02
+  Version: 1.0
   Author: Visceral Concepts
   Author URI: http://www.visceralconcepts.com
   License: GPLv3 or Later
