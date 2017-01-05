@@ -34,7 +34,6 @@ function vc_owl_scripts() {
 	wp_register_style( 'vc-animate-css', plugin_dir_url(__FILE__) . 'css/vc.animate.css', false, '2.0.0', false );
 	wp_register_style( 'vc-autoheight-css', plugin_dir_url(__FILE__) . 'css/vc.autoheight.css', false, '2.0.0', false );
 	wp_register_style( 'vc-lazyload-css', plugin_dir_url(__FILE__) . 'css/vc.lazyload.css', false, '2.0.0', false );
-	wp_register_script( 'vc-jquery' , plugin_dir_url(__FILE__) . 'js/jquery.min.js', false, '2.1.1', false );
 	wp_register_script( 'vc-script', plugin_dir_url(__FILE__) . 'js/vc.carousel.min.js', false, '2.0.0', false );
 	wp_enqueue_style( 'vc-css' );
 	wp_enqueue_style( 'vc-theme-css' );
